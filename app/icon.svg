@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <g transform="rotate(-6 16 16)">
+    <rect x="3" y="2" width="26" height="28" rx="8" fill="#275a46"/>
+    <text x="16" y="23" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#fff">f</text>
+  </g>
+</svg>

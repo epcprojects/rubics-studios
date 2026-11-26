@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  /* Palette from the client's FlexGrades design: soft sage paper, forest green, coral accent. */
+  --color-bg: #f7f8f5;
+  --color-surface: #ffffff;
+  --color-surface-2: #f9faf7;
+  --color-sidebar: #f0f3ed;
+  --color-ink: #233c34;
+  --color-ink-2: #55655c;
+  --color-ink-3: #748079;
+  --color-line: #e3e8e1;
+
+  --color-brand-50: #eaf1e8;
+  --color-brand-100: #dfe9dc;
+  --color-brand-200: #bdcdb3;
+  --color-brand-500: #4f7f62;
+  --color-brand-600: #275a46;
+  --color-brand-700: #1f4a39;
+  --color-brand-900: #1d3a2f;
+  --color-sage: #88a674;
+  --color-accent: #d9785f;
+
+  --color-ok: #2f6b3f;
+  --color-ok-bg: #e3eedc;
+  --color-warn: #947035;
+  --color-warn-bg: #faf0dd;
+  --color-bad: #b34f3a;
+  --color-bad-bg: #fbece6;
+
+  --shadow-card: 0 1px 2px rgb(35 60 52 / 0.05);
+  --shadow-pop: 0 30px 90px rgb(32 55 43 / 0.2);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-brand-200);
+}
+
+:focus-visible {
+  outline: 3px solid #cf8c55;
+  outline-offset: 2px;
+}
+
+/* Instrument Serif only ships a regular weight. Stop utilities from faking a bold. */
+.font-display {
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  /* Instrument Serif has a small x-height; keep it optically level with DM Sans. */
+  font-size-adjust: 0.5;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rec-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes dot-bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-enter {
+  animation: enter 0.35s ease;
+}
+.animate-pop {
+  animation: pop-in 0.2s ease;
+}
+.animate-fade {
+  animation: fade-in 0.25s ease;
+}
+.animate-rec {
+  animation: rec-pulse 1s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Printing: only the rubric sheet (and gradebook table) should reach the page. */
+@media print {
+  body {
+    background: #fff;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+.print-only {
+  display: none;
+}
