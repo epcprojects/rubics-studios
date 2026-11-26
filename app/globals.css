@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 
   /* Palette from the client's FlexGrades design: soft sage paper, forest green, coral accent. */
   --color-bg: #f7f8f5;
@@ -59,12 +59,10 @@ body {
   outline-offset: 2px;
 }
 
-/* Instrument Serif only ships a regular weight. Stop utilities from faking a bold. */
+/* Headings, big numbers and scores: Manrope, bold and slightly tightened. */
 .font-display {
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  /* Instrument Serif has a small x-height; keep it optically level with DM Sans. */
-  font-size-adjust: 0.5;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 @keyframes pop-in {
